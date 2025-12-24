@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ArrowUpRight, Github, Linkedin, Mail, Instagram, MessageCircle, Chrome, Figma, X, Lock, Menu as MenuIcon } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail, Instagram, MessageCircle, Chrome, Figma, X, Lock, Menu as MenuIcon, Globe, Cpu, Brain, Gamepad2, Utensils, Zap, Code2 } from 'lucide-react';
 import ChatWidget from './components/ChatWidget';
 import ToggleSwitch from './components/ToggleSwitch';
 import Marquee from './components/Marquee';
@@ -26,10 +26,62 @@ const App: React.FC = () => {
   };
 
   const services = [
-    { id: 'ux', title: "UX/UI", description: "I provide peace of mind to my clients by demystifying the complex and ever-changing landscape of the web." },
-    { id: 'branding', title: "Branding", description: "Crafting unique visual identities that resonate with your core audience and stand the test of time." },
-    { id: 'illustration', title: "Illustration", description: "Bringing digital products to life with custom-made visual assets and character designs." },
-    { id: 'motion', title: "Motion", description: "Adding the fourth dimension to designs with purposeful, smooth animations that guide user behavior." }
+    { 
+      id: 'web', 
+      title: "Custom Website Development", 
+      icon: <Globe size={32} />,
+      tagline: "Fast, responsive websites built to look professional and work flawlessly.",
+      bestFor: "Businesses, startups, personal brands",
+      description: "I design and build fast, responsive, and modern websites tailored to your business or idea. From landing pages to full websites, I focus on clarity, performance, and real-world usability."
+    },
+    { 
+      id: 'engineering', 
+      title: "Engineering & Educational Platforms", 
+      icon: <Cpu size={32} />,
+      tagline: "Interactive platforms that turn complex engineering ideas into clear experiences.",
+      bestFor: "EdTech, students, institutions, technical founders",
+      description: "I build interactive platforms for learning and visualization, especially for engineering and technical subjects. These include simulations, calculators, and concept-driven tools."
+    },
+    { 
+      id: 'ai', 
+      title: "AI-Powered Web Applications", 
+      icon: <Brain size={32} />,
+      tagline: "Smart web apps that use AI to solve real problems automatically.",
+      bestFor: "Smart tools, productivity apps, innovation projects",
+      description: "I develop web apps that use AI to automate tasks, generate layouts, or assist users intelligently—turning complex problems into simple user experiences."
+    },
+    { 
+      id: 'interactive', 
+      title: "Interactive Tools & Web Games", 
+      icon: <Gamepad2 size={32} />,
+      tagline: "Engaging web experiences designed for learning, play, and performance.",
+      bestFor: "Learning platforms, experiments, fun products",
+      description: "I create engaging web-based games and interactive tools that focus on performance, real-time interaction, and user engagement."
+    },
+    { 
+      id: 'restaurant', 
+      title: "Restaurant & Local Business Websites", 
+      icon: <Utensils size={32} />,
+      tagline: "Clean, mobile-first websites that help local brands stand out online.",
+      bestFor: "Restaurants, cafes, small businesses",
+      description: "I design lightweight, mobile-first websites for restaurants and local brands that want a strong online presence and fast-loading pages."
+    },
+    { 
+      id: 'ux', 
+      title: "UI/UX Design (Engineering-Driven)", 
+      icon: <Zap size={32} />,
+      tagline: "Interfaces designed with logic, clarity, and user flow at the core.",
+      bestFor: "Products that need clarity and structure",
+      description: "I don’t just make things look good — I design interfaces that make sense. Every layout is built around user flow, logic, and problem-solving."
+    },
+    { 
+      id: 'prototype', 
+      title: "Prototypes & Experimental Builds", 
+      icon: <Code2 size={32} />,
+      tagline: "From idea to working prototype—built fast, tested smart.",
+      bestFor: "Startups, hackathons, R&D projects",
+      description: "I help turn ideas into working prototypes quickly, including complex visualizations, demos, and proof-of-concept builds."
+    }
   ];
 
   return (
@@ -166,23 +218,37 @@ const App: React.FC = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="border-t border-black bg-[#F1F0D1]">
-        {services.map((service) => (
-          <div key={service.id} className="group border-b border-black hover:bg-black hover:text-[#F1F0D1] transition-all duration-300">
-            <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-8">
-              <div className="flex items-center gap-12 flex-1">
-                <h3 className="font-display text-4xl md:text-6xl font-black uppercase tracking-tighter">{service.title}</h3>
-                {/* No 'Open' button here as per user request - keeping only the arrow for aesthetic but non-navigational */}
-                <div className="w-12 h-12 rounded-full border-2 border-black group-hover:border-[#F1F0D1] flex items-center justify-center opacity-40 group-hover:opacity-100">
-                  <ArrowUpRight size={24} />
-                </div>
-              </div>
-              <div className="flex-1 md:max-w-md opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                <p className="text-lg leading-snug font-bold">{service.description}</p>
-              </div>
-            </div>
+      <section id="services" className="border-t border-black bg-[#F1F0D1] py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-20">
+            <h2 className="font-display text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4">Services I Offer</h2>
+            <p className="font-display text-xl md:text-3xl font-bold uppercase italic tracking-tight opacity-40">“I build solutions — not just websites.”</p>
           </div>
-        ))}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-black border border-black overflow-hidden rounded-2xl">
+            {services.map((service) => (
+              <div key={service.id} className="bg-[#F1F0D1] p-10 flex flex-col group hover:bg-black hover:text-[#F1F0D1] transition-all duration-500">
+                <div className="mb-12 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6 origin-left">
+                  {service.icon}
+                </div>
+                <h3 className="font-display text-2xl font-black uppercase tracking-tight mb-4">{service.title}</h3>
+                <p className="font-bold text-sm mb-6 opacity-60 group-hover:opacity-100">{service.tagline}</p>
+                <div className="mb-8 flex-1">
+                   <p className="text-sm leading-relaxed mb-4">{service.description}</p>
+                   <div className="inline-block px-3 py-1 bg-black/5 group-hover:bg-[#F1F0D1]/10 rounded text-[10px] font-mono font-bold uppercase tracking-widest">
+                     Best for: {service.bestFor}
+                   </div>
+                </div>
+                <button 
+                  onClick={() => scrollToSection('projects')}
+                  className="flex items-center gap-2 font-display font-black text-xs uppercase tracking-[0.2em] group-hover:translate-x-2 transition-transform"
+                >
+                  View Projects <ArrowUpRight size={14} />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Contact Section */}
