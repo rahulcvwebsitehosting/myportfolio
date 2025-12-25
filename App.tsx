@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Github, Linkedin, Mail, Instagram, MessageCircle, Chrome, Figma, X, Lock, Menu as MenuIcon, Globe, Cpu, Brain, Gamepad2, Utensils, Zap, Code2, FileText, MapPin, Download } from 'lucide-react';
+import { ArrowUpRight, Linkedin, Mail, Instagram, MessageCircle, X, Lock, Menu as MenuIcon, Globe, Cpu, Brain, MapPin, Download, Info, Award, BookOpen, GraduationCap, Mic2 } from 'lucide-react';
 import ChatWidget from './components/ChatWidget';
-import ToggleSwitch from './components/ToggleSwitch';
 import Marquee from './components/Marquee';
-import { PROJECTS } from './constants';
+import { PROJECTS, SKILLS_DETAILED } from './constants';
 
 const App: React.FC = () => {
   const [contactEmail, setContactEmail] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleSendRequest = () => {
-    if (!contactEmail) return;
-    const subject = encodeURIComponent("Project Request from Portfolio");
-    const body = encodeURIComponent(`Hi Rahul,\n\nI'm reaching out from your portfolio. Let's discuss a project.\n\nBest regards,\n${contactEmail}`);
+    const subject = encodeURIComponent("Project Inquiry");
+    const body = encodeURIComponent("Hi Rahul, I saw your portfolio and would like to discuss a project.");
     window.location.href = `mailto:rahulshyam2006@outlook.com?subject=${subject}&body=${body}`;
   };
 
@@ -51,22 +49,28 @@ const App: React.FC = () => {
     }
   ];
 
+  const collegePresentations = [
+    "PSG College of Technology", "Kongu Engineering College", 
+    "KPR Institute of Engineering & Tech", "Sasurie College of Engineering",
+    "SRM Institute of Science & Tech", "Erode Sengunthar Engineering College"
+  ];
+
   return (
     <div className="min-h-screen bg-[#F1F0D1] text-black selection:bg-black selection:text-[#F1F0D1]">
-      {/* Menu Overlay */}
-      <div className={`fixed inset-0 z-[100] bg-[#F1F0D1] transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
+      {/* Navigation Overlay */}
+      <div className={`fixed inset-0 z-[100] bg-black text-[#F1F0D1] transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
         <button 
           onClick={() => setIsMenuOpen(false)}
-          className="absolute top-6 right-6 p-4 border-2 border-black rounded-full hover:bg-black hover:text-[#F1F0D1] transition-all"
+          className="absolute top-6 right-6 p-4 border-2 border-[#F1F0D1] rounded-full hover:bg-[#F1F0D1] hover:text-black transition-all"
         >
           <X size={32} />
         </button>
-        <nav className="h-full flex flex-col justify-center items-center gap-8">
-          {['home', 'about', 'projects', 'services', 'contact'].map((item) => (
+        <nav className="h-full flex flex-col justify-center items-center gap-6">
+          {['home', 'about', 'performance', 'skills', 'projects', 'services', 'contact'].map((item) => (
             <button 
               key={item}
               onClick={() => scrollToSection(item)}
-              className="font-display text-5xl md:text-8xl font-black uppercase tracking-tighter hover:italic hover:text-outline transition-all"
+              className="font-display text-4xl md:text-7xl font-black uppercase tracking-tighter hover:italic hover:text-outline transition-all"
             >
               {item}
             </button>
@@ -74,23 +78,34 @@ const App: React.FC = () => {
         </nav>
       </div>
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center mix-blend-difference invert">
-        <div className="font-display font-black text-2xl tracking-tighter">RAHUL S.</div>
-        <button 
-          onClick={() => setIsMenuOpen(true)}
-          className="flex items-center gap-2 group"
-        >
-          <span className="text-sm font-bold uppercase tracking-widest group-hover:line-through">Menu</span>
-          <MenuIcon size={20} />
-        </button>
+      {/* Persistent Header */}
+      <header className="fixed top-0 left-0 right-0 z-[90] p-4 md:p-6 flex justify-between items-center pointer-events-none">
+        <div className="flex items-center gap-4 pointer-events-auto">
+          <div className="font-display font-black text-xl md:text-2xl tracking-tighter bg-black text-[#F1F0D1] px-4 py-1">RAHUL S.</div>
+        </div>
+        
+        <div className="flex items-center gap-2 md:gap-4 pointer-events-auto">
+          <button 
+            onClick={handleSendRequest}
+            className="hidden sm:flex items-center gap-2 bg-[#F1F0D1] border-2 border-black px-4 py-2 font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-[#F1F0D1] transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1"
+          >
+            Let's Talk <Mail size={16} />
+          </button>
+          <button 
+            onClick={() => setIsMenuOpen(true)}
+            className="flex items-center gap-2 bg-black text-[#F1F0D1] border-2 border-black px-4 py-2 font-bold uppercase text-xs tracking-widest hover:bg-[#F1F0D1] hover:text-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]"
+          >
+            <span className="hidden md:inline">Browse</span>
+            <MenuIcon size={18} />
+          </button>
+        </div>
       </header>
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 overflow-hidden">
         <div className="relative z-10 max-w-6xl w-full text-center">
           <div className="flex flex-col items-center gap-4">
-            <h1 className="font-display text-7xl md:text-[11rem] font-black tracking-tighter leading-none uppercase">
+            <h1 className="font-display text-7xl md:text-[11rem] font-black tracking-tighter leading-none uppercase animate-zoom-in">
               Rahul Shyam
             </h1>
             
@@ -147,7 +162,7 @@ const App: React.FC = () => {
                 href="https://drive.google.com/file/d/11BXxzDZneovwL4tFqS0xxujDtX87W1JI/view" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-between w-full px-8 py-6 bg-black text-[#F1F0D1] rounded-2xl font-display text-xl font-black uppercase tracking-tighter hover:italic hover:scale-[1.02] transition-all group"
+                className="flex items-center justify-between w-full px-8 py-6 bg-black text-[#F1F0D1] rounded-2xl font-display text-xl font-black uppercase tracking-tighter hover:italic hover:scale-[1.02] transition-all group shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)]"
               >
                 Download Resume <Download size={24} className="group-hover:translate-y-1 transition-transform" />
               </a>
@@ -200,6 +215,140 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Academic Performance & Engagement Section */}
+      <section id="performance" className="py-24 px-6 border-b border-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* CGPA & Philosophy Card */}
+            <div className="lg:col-span-1 space-y-8">
+              <div className="bg-black text-[#F1F0D1] p-10 rounded-2xl border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <div className="flex justify-between items-start mb-6">
+                  <GraduationCap size={40} className="text-[#F1F0D1]" />
+                  <div className="text-right">
+                    <div className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] opacity-50">CGPA</div>
+                    <div className="text-5xl font-display font-black">8.6</div>
+                  </div>
+                </div>
+                <h3 className="font-display text-2xl font-black uppercase mb-4 tracking-tighter">Academic Excellence</h3>
+                <p className="text-sm opacity-70 leading-relaxed italic">
+                  Maintaining a strong academic record while actively scaling real-world engineering projects and startups.
+                </p>
+              </div>
+
+              <div className="bg-white border-2 border-black p-10 rounded-2xl space-y-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <div className="flex items-center gap-3">
+                  <BookOpen size={24} />
+                  <h3 className="font-display text-xl font-black uppercase tracking-tight">Study Philosophy</h3>
+                </div>
+                <div className="space-y-4">
+                  <div className="p-4 bg-black/5 rounded-xl border-l-4 border-black">
+                    <p className="text-sm font-bold leading-relaxed italic">"True learning happens when theory meets application. I learn best by building."</p>
+                  </div>
+                  <ul className="space-y-3 text-xs font-bold uppercase tracking-widest opacity-60">
+                    <li className="flex items-center gap-2">• Concept-first approach</li>
+                    <li className="flex items-center gap-2">• Visualization-driven logic</li>
+                    <li className="flex items-center gap-2">• Real-world application</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Engagements Card */}
+            <div className="lg:col-span-2 bg-[#F1F0D1] border-2 border-black rounded-2xl p-10 relative overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+               <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-10">
+                  <Award size={32} />
+                  <h2 className="font-display text-4xl md:text-5xl font-black uppercase tracking-tighter">Technical Log</h2>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-12">
+                  <div className="space-y-8">
+                    <div>
+                      <h4 className="flex items-center gap-2 font-display text-xl font-black uppercase mb-4">
+                        <Mic2 size={18} /> Presentations & Talks
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {collegePresentations.map((college, i) => (
+                          <span key={i} className="px-3 py-1 bg-black text-[#F1F0D1] text-[10px] font-mono font-bold uppercase tracking-widest rounded-full">
+                            {college}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="mt-4 text-xs font-medium opacity-60 leading-relaxed">
+                        Delivered technical presentations across multiple reputed institutions in Tamil Nadu, covering engineering innovation and technology-driven solutions.
+                      </p>
+                    </div>
+
+                    <div className="p-6 border-2 border-dashed border-black rounded-xl">
+                      <h4 className="font-display font-black uppercase text-sm mb-2">Hackathons & Competitions</h4>
+                      <p className="text-xs font-medium opacity-70 leading-relaxed">
+                        Active participant in multiple inter-college competitions. Focused on building functional prototypes under time constraints and leading technical teams.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-8">
+                     <div className="bg-black/5 p-6 rounded-xl space-y-4">
+                        <h4 className="font-display font-black uppercase text-sm border-b border-black/10 pb-2">Learning Methodology</h4>
+                        <div className="space-y-4">
+                          {[
+                            { t: "Mental Models", d: "Breaking complex topics into simple structural systems." },
+                            { t: "Visualization", d: "Using flowcharts and diagrams to understand processes." },
+                            { t: "Self-Teaching", d: "Deep learning by building tools or explaining concepts." }
+                          ].map((item, idx) => (
+                            <div key={idx}>
+                              <div className="text-[10px] font-mono font-black uppercase tracking-widest mb-1">{item.t}</div>
+                              <p className="text-xs opacity-70">{item.d}</p>
+                            </div>
+                          ))}
+                        </div>
+                     </div>
+                  </div>
+                </div>
+               </div>
+               
+               {/* Decorative background element */}
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03]">
+                  <Cpu size={500} />
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills & Tools Section */}
+      <section id="skills" className="py-24 px-6 border-b border-black bg-black text-[#F1F0D1]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <h2 className="font-display text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">
+              Skills &<br/>Tools
+            </h2>
+            <div className="flex items-center gap-2 font-mono text-xs opacity-50 mb-4 animate-pulse">
+              <Info size={14} />
+              <span>Hover over items to see applications</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {SKILLS_DETAILED.map((skill, index) => (
+              <div key={index} className="group relative">
+                <div className="border-2 border-[#F1F0D1]/20 p-8 h-full flex flex-col justify-between hover:bg-[#F1F0D1] hover:text-black hover:border-black transition-all duration-300 cursor-default">
+                  <span className="font-mono text-[10px] uppercase opacity-50 group-hover:opacity-100">{skill.category}</span>
+                  <h3 className="font-display text-2xl font-black uppercase tracking-tight mt-4">{skill.name}</h3>
+                </div>
+
+                <div className="invisible group-hover:visible absolute z-50 bottom-full left-0 mb-4 w-64 p-4 bg-[#F1F0D1] text-black border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+                  <div className="relative">
+                    <p className="text-sm font-bold leading-relaxed">{skill.description}</p>
+                    <div className="absolute -bottom-6 left-4 w-4 h-4 bg-[#F1F0D1] border-r-2 border-b-2 border-black rotate-45"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section id="projects" className="bg-black text-[#F1F0D1]">
         <div className="max-w-7xl mx-auto px-6 py-24">
@@ -236,11 +385,11 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Expertise Section */}
       <section id="services" className="bg-[#F1F0D1] py-24">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-display text-5xl md:text-8xl font-black uppercase mb-12 tracking-tighter">Expertise</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black border border-black overflow-hidden rounded-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black border border-black overflow-hidden rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             {services.map((service) => (
               <div key={service.id} className="bg-[#F1F0D1] p-10 flex flex-col group hover:bg-black hover:text-[#F1F0D1] transition-all duration-500">
                 <div className="mb-8">{service.icon}</div>

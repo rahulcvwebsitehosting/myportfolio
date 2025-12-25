@@ -1,5 +1,22 @@
 import { Project, Service, Skill } from './types';
 
+export interface DetailedSkill {
+  name: string;
+  category: string;
+  description: string;
+}
+
+export const SKILLS_DETAILED: DetailedSkill[] = [
+  { name: 'React / Next.js', category: 'Web', description: 'Building high-performance, dynamic apps like Hostel Planner with SSR and complex state.' },
+  { name: 'Tailwind CSS', category: 'UI', description: 'Rapidly creating bespoke, responsive layouts with a utility-first approach.' },
+  { name: 'TypeScript', category: 'Logic', description: 'Ensuring enterprise-grade reliability through strict static typing and clean architecture.' },
+  { name: 'AI Features', category: 'Intelligence', description: 'Integrating Gemini and OpenAI to automate complex workflows and layout generation.' },
+  { name: 'Three.js / 3D Viz', category: 'Engineering', description: 'Visualizing industrial processes and civil engineering structures in interactive 3D.' },
+  { name: 'UI/UX Principles', category: 'Design', description: 'Applying neobrutalist logic to ensure clarity and user-centric problem solving.' },
+  { name: 'System Design', category: 'Core', description: 'Architecting scalable software solutions by analyzing real-world technical constraints.' },
+  { name: 'Engineering UX', category: 'Logic', description: 'Translating complex engineering data into intuitive, functional user interfaces.' }
+];
+
 export const PROJECTS: Project[] = [
   {
     id: '1',
