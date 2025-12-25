@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, Linkedin, Mail, Instagram, MessageCircle, X, Lock, Menu as MenuIcon, Globe, Cpu, Brain, MapPin, Download, Info, Award, BookOpen, GraduationCap, Mic2, Github, ArrowUp, Zap, Users, Trophy } from 'lucide-react';
 import { motion, useScroll, useSpring, AnimatePresence, animate } from 'framer-motion';
 import ChatWidget from './components/ChatWidget';
@@ -7,7 +7,7 @@ import { PROJECTS, SKILLS_DETAILED } from './constants';
 
 // Explicit interfaces for ErrorBoundary to ensure state and props are correctly identified by TypeScript
 interface ErrorBoundaryProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 interface ErrorBoundaryState {
@@ -15,8 +15,8 @@ interface ErrorBoundaryState {
 }
 
 // Error Boundary Component
+// Fix: Use a more explicit structure for ErrorBoundary to resolve line 35 props error
 class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  // Use property initializer for state to resolve "Property 'state' does not exist" error
   public state: ErrorBoundaryState = { hasError: false };
 
   constructor(props: ErrorBoundaryProps) {
@@ -32,7 +32,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   }
 
   render() {
-    // Correctly access state and props which are now explicitly typed
+    // Access state and props via this directly to prevent property does not exist errors
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-[#F1F0D1] flex flex-col items-center justify-center p-6 text-center">
@@ -64,7 +64,6 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   }
 }
 
-// Fixed RevealSection: Removed React.FC and added optional typing to children to fix prop validation errors in React 18
 const RevealSection = ({ children, id, className, delay = 0 }: { children?: React.ReactNode; id?: string; className?: string; delay?: number }) => {
   return (
     <motion.section
@@ -100,6 +99,7 @@ const App: React.FC = () => {
   const [contactEmail, setContactEmail] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const scrollAnimationRef = useRef<any>(null);
 
   // Scroll Progress Logic
   const { scrollYProgress } = useScroll();
@@ -129,12 +129,19 @@ const App: React.FC = () => {
       setIsMenuOpen(false);
       const headerOffset = 100;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const startPosition = window.pageYOffset;
+      const targetPosition = elementPosition + startPosition - headerOffset;
 
-      animate(window.scrollY, offsetPosition, {
+      // Stop any existing scroll animation to prevent conflicting updates
+      if (scrollAnimationRef.current) {
+        scrollAnimationRef.current.stop();
+      }
+
+      // Refined scroll animation: Faster duration (1s) and a smoother expo-style easing for a high-end feel
+      scrollAnimationRef.current = animate(startPosition, targetPosition, {
         type: "tween",
-        duration: 1.4,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 1.1,
+        ease: [0.16, 1, 0.3, 1], // Custom expo-style ease-out
         onUpdate: (latest) => window.scrollTo(0, latest)
       });
     } else {
@@ -763,10 +770,12 @@ const App: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               onClick={() => {
-                animate(window.scrollY, 0, {
+                // Using the refined scrollToSection logic for the back-to-top button as well
+                if (scrollAnimationRef.current) scrollAnimationRef.current.stop();
+                scrollAnimationRef.current = animate(window.pageYOffset, 0, {
                   type: "tween",
                   duration: 1.2,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: [0.16, 1, 0.3, 1],
                   onUpdate: (latest) => window.scrollTo(0, latest)
                 });
               }}
