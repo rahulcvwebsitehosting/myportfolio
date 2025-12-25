@@ -1,9 +1,15 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export async function askRahulAI(question: string) {
+  // Check browser connectivity first
+  if (!navigator.onLine) {
+    return "You appear to be offline. Please check your connection and try again.";
+  }
+
   try {
+    // Re-instantiate to ensure latest environment variables
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: question,
@@ -25,7 +31,7 @@ export async function askRahulAI(question: string) {
         - TypeArena: Multiplayer typing game.
         - Mohan Hot’n Chat & OSB Chats: West Mambalam restaurant platforms.
         - TunnelViz: Tunnel engineering educational platform.
-        - EcoBrick: Green-tech machine prototype visualization (In Progress).
+        - EcoBrick: Green-tech platform (In Progress).
 
         STRICT COMMUNICATION GUIDELINES:
         1. BE EXTREMELY CONCISE. 1-2 sentences max.
@@ -35,9 +41,35 @@ export async function askRahulAI(question: string) {
         temperature: 0.1,
       }
     });
-    return response.text || "Contact Rahul at rahulshyam2006@outlook.com";
-  } catch (error) {
-    console.error("Gemini Error:", error);
-    return "AI offline. Reach Rahul at rahulshyam2006@outlook.com";
+
+    const text = response.text;
+    if (!text) {
+      return "AI returned an empty response. Reach Rahul at rahulshyam2006@outlook.com.";
+    }
+
+    return text;
+  } catch (error: any) {
+    console.error("Gemini AI Error:", error);
+    
+    const errMsg = error?.message?.toLowerCase() || "";
+    
+    // Specific error mapping for user feedback
+    if (errMsg.includes("fetch") || errMsg.includes("network")) {
+      return "Connection error. AI service is currently unreachable.";
+    }
+    
+    if (errMsg.includes("429") || errMsg.includes("quota")) {
+      return "AI limit reached. Please try again in a minute or email Rahul directly.";
+    }
+    
+    if (errMsg.includes("safety") || errMsg.includes("blocked")) {
+      return "Query filtered for safety. Please ask about Rahul's work or background.";
+    }
+
+    if (errMsg.includes("key") || errMsg.includes("401") || errMsg.includes("403")) {
+      return "AI access error. Please reach out to Rahul via email.";
+    }
+
+    return "AI is temporarily unavailable. Reach Rahul at rahulshyam2006@outlook.com.";
   }
 }

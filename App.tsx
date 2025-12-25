@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, Linkedin, Mail, Instagram, MessageCircle, X, Lock, Menu as MenuIcon, Globe, Cpu, Brain, MapPin, Download, Info, Award, BookOpen, GraduationCap, Mic2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import ChatWidget from './components/ChatWidget';
 import Marquee from './components/Marquee';
 import { PROJECTS, SKILLS_DETAILED } from './constants';
@@ -17,9 +18,13 @@ const App: React.FC = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
+      // Small timeout to allow menu close animation to feel more natural if needed
+      // but immediate close is usually better for responsiveness
+      setIsMenuOpen(false);
       element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      setIsMenuOpen(false);
     }
-    setIsMenuOpen(false);
   };
 
   const services = [
@@ -55,6 +60,16 @@ const App: React.FC = () => {
     "SRM Institute of Science & Tech", "Erode Sengunthar Engineering College"
   ];
 
+  const menuItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'performance', label: 'Academic' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'services', label: 'Expertise' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
   return (
     <div className="min-h-screen bg-[#F1F0D1] text-black selection:bg-black selection:text-[#F1F0D1]">
       {/* Navigation Overlay */}
@@ -62,17 +77,18 @@ const App: React.FC = () => {
         <button 
           onClick={() => setIsMenuOpen(false)}
           className="absolute top-6 right-6 p-4 border-2 border-[#F1F0D1] rounded-full hover:bg-[#F1F0D1] hover:text-black transition-all"
+          aria-label="Close Menu"
         >
           <X size={32} />
         </button>
-        <nav className="h-full flex flex-col justify-center items-center gap-6">
-          {['home', 'about', 'performance', 'skills', 'projects', 'services', 'contact'].map((item) => (
+        <nav className="h-full flex flex-col justify-center items-center gap-6 p-10 overflow-y-auto">
+          {menuItems.map((item) => (
             <button 
-              key={item}
-              onClick={() => scrollToSection(item)}
-              className="font-display text-4xl md:text-7xl font-black uppercase tracking-tighter hover:italic hover:text-outline transition-all"
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="font-display text-4xl md:text-7xl font-black uppercase tracking-tighter hover:italic hover:text-outline transition-all text-center"
             >
-              {item}
+              {item.label}
             </button>
           ))}
         </nav>
@@ -86,7 +102,7 @@ const App: React.FC = () => {
         
         <div className="flex items-center gap-2 md:gap-4 pointer-events-auto">
           <button 
-            onClick={handleSendRequest}
+            onClick={() => scrollToSection('contact')}
             className="hidden sm:flex items-center gap-2 bg-[#F1F0D1] border-2 border-black px-4 py-2 font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-[#F1F0D1] transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1"
           >
             Let's Talk <Mail size={16} />
@@ -94,6 +110,7 @@ const App: React.FC = () => {
           <button 
             onClick={() => setIsMenuOpen(true)}
             className="flex items-center gap-2 bg-black text-[#F1F0D1] border-2 border-black px-4 py-2 font-bold uppercase text-xs tracking-widest hover:bg-[#F1F0D1] hover:text-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]"
+            aria-label="Open Menu"
           >
             <span className="hidden md:inline">Browse</span>
             <MenuIcon size={18} />
@@ -102,12 +119,21 @@ const App: React.FC = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 overflow-hidden">
+      <section id="home" className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 overflow-hidden scroll-mt-0">
         <div className="relative z-10 max-w-6xl w-full text-center">
           <div className="flex flex-col items-center gap-4">
-            <h1 className="font-display text-7xl md:text-[11rem] font-black tracking-tighter leading-none uppercase animate-zoom-in">
+            <motion.h1 
+              initial={{ opacity: 0, scale: 0.94, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ 
+                duration: 1.4, 
+                ease: [0.16, 1, 0.3, 1],
+                opacity: { duration: 1 }
+              }}
+              className="font-display text-7xl md:text-[11rem] font-black tracking-tighter leading-none uppercase"
+            >
               Rahul Shyam
-            </h1>
+            </motion.h1>
             
             <div className="mt-8 md:mt-12 relative">
               <div className="inline-block px-10 md:px-20 py-6 md:py-10 border-2 border-black rounded-[50%_10%_50%_10%] relative group hover:bg-black hover:text-[#F1F0D1] transition-all duration-500">
@@ -130,7 +156,7 @@ const App: React.FC = () => {
       <Marquee text="Design • Code • Engineer • Solution" />
 
       {/* About Section */}
-      <section id="about" className="py-24 px-6 border-b border-black">
+      <section id="about" className="py-24 px-6 border-b border-black scroll-mt-28">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
             <div className="space-y-8">
@@ -216,7 +242,7 @@ const App: React.FC = () => {
       </section>
 
       {/* Academic Performance & Engagement Section */}
-      <section id="performance" className="py-24 px-6 border-b border-black">
+      <section id="performance" className="py-24 px-6 border-b border-black scroll-mt-28">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* CGPA & Philosophy Card */}
@@ -316,8 +342,8 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Skills & Tools Section */}
-      <section id="skills" className="py-24 px-6 border-b border-black bg-black text-[#F1F0D1]">
+      {/* Skills & Tools Section with Tooltips */}
+      <section id="skills" className="py-24 px-6 border-b border-black bg-black text-[#F1F0D1] scroll-mt-28">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <h2 className="font-display text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">
@@ -337,7 +363,7 @@ const App: React.FC = () => {
                   <h3 className="font-display text-2xl font-black uppercase tracking-tight mt-4">{skill.name}</h3>
                 </div>
 
-                <div className="invisible group-hover:visible absolute z-50 bottom-full left-0 mb-4 w-64 p-4 bg-[#F1F0D1] text-black border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+                <div className="invisible group-hover:visible absolute z-50 bottom-full left-0 mb-4 w-64 p-4 bg-[#F1F0D1] text-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
                   <div className="relative">
                     <p className="text-sm font-bold leading-relaxed">{skill.description}</p>
                     <div className="absolute -bottom-6 left-4 w-4 h-4 bg-[#F1F0D1] border-r-2 border-b-2 border-black rotate-45"></div>
@@ -350,7 +376,7 @@ const App: React.FC = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="bg-black text-[#F1F0D1]">
+      <section id="projects" className="bg-black text-[#F1F0D1] scroll-mt-28">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <h2 className="font-display text-5xl md:text-8xl font-black uppercase mb-16 tracking-tighter">Selected Projects</h2>
           <div className="border-t border-[#F1F0D1]/20">
@@ -386,7 +412,7 @@ const App: React.FC = () => {
       </section>
 
       {/* Expertise Section */}
-      <section id="services" className="bg-[#F1F0D1] py-24">
+      <section id="services" className="bg-[#F1F0D1] py-24 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-display text-5xl md:text-8xl font-black uppercase mb-12 tracking-tighter">Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black border border-black overflow-hidden rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -405,7 +431,7 @@ const App: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="pt-32 pb-12 bg-[#F1F0D1]">
+      <section id="contact" className="pt-32 pb-12 bg-[#F1F0D1] scroll-mt-28">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="font-display text-6xl md:text-8xl font-black uppercase mb-12 tracking-tighter">Let's Engineer<br/>Your Product</h2>
           <div className="max-w-2xl mx-auto mb-32 group">
@@ -417,7 +443,7 @@ const App: React.FC = () => {
                 onChange={(e) => setContactEmail(e.target.value)}
                 className="bg-transparent border-none w-full text-3xl md:text-6xl font-display font-black uppercase focus:outline-none placeholder:text-black/10"
               />
-              <button onClick={handleSendRequest} className="w-16 h-16 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-[#F1F0D1] transition-all shrink-0">
+              <button onClick={handleSendRequest} className="w-16 h-16 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-[#F1F0D1] transition-all shrink-0" aria-label="Send Inquiry">
                 <ArrowUpRight size={32} />
               </button>
             </div>
