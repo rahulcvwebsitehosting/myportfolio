@@ -15,9 +15,12 @@ interface ErrorBoundaryState {
 }
 
 // Error Boundary Component
-// Fix: Simplified ErrorBoundary class to ensure React.Component types are correctly inherited and "props" property is recognized
+// Fix: Added explicit constructor to ensure 'props' is correctly initialized and recognized by the TypeScript compiler.
 class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  state: ErrorBoundaryState = { hasError: false };
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
 
   static getDerivedStateFromError() {
     return { hasError: true };
@@ -28,7 +31,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   }
 
   render() {
-    // Access state and props via this directly to prevent property does not exist errors
+    // Access state via this.state
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-[#F1F0D1] flex flex-col items-center justify-center p-6 text-center">
@@ -138,7 +141,7 @@ const App: React.FC = () => {
         type: "tween",
         duration: 1.1,
         ease: [0.16, 1, 0.3, 1], // Custom expo-style ease-out
-        onUpdate: (latest) => window.scrollTo(0, latest)
+        onUpdate: (latest: number) => window.scrollTo(0, latest)
       });
     } else {
       setIsMenuOpen(false);
@@ -772,7 +775,7 @@ const App: React.FC = () => {
                   type: "tween",
                   duration: 1.2,
                   ease: [0.16, 1, 0.3, 1],
-                  onUpdate: (latest) => window.scrollTo(0, latest)
+                  onUpdate: (latest: number) => window.scrollTo(0, latest)
                 });
               }}
               className="fixed bottom-6 left-6 w-12 h-12 bg-black text-[#F1F0D1] rounded-full border-2 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all z-50"
