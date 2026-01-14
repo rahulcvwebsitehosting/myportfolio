@@ -76,17 +76,37 @@ export const PROJECTS: Project[] = [
     id: '7',
     title: 'EcoBrick (Startup)',
     problem: 'Converting plastic waste into sustainable construction materials.',
-    impact: 'Climate-tech platform converting waste into high-performance bricks (In Progress).',
+    impact: 'Climate-tech platform converting waste into high-performance bricks.',
     tech: ['Next.js', '3D Viz', 'System Design'],
     image: 'https://picsum.photos/seed/ecobrick/800/600',
+    link: 'https://sngreensolutions.vercel.app/'
   },
   {
     id: '8',
-    title: 'Prototype Machine',
-    problem: 'Visualizing industrial processes for dual-chamber twin-screw extrusion systems.',
-    impact: '3D engineering visualization of manufacturing process flow (In Progress).',
-    tech: ['Three.js', 'Web Engineering'],
+    title: 'EcoBrick Proto-X',
+    problem: 'Explaining complex industrial machinery and twin-screw extrusion processes to non-engineers.',
+    impact: 'Interactive 3D Digital Twin used for investor confidence, client transparency, and technical training.',
+    tech: ['Three.js', 'Web Engineering', 'Digital Twin'],
     image: 'https://picsum.photos/seed/machine/800/600',
+    link: 'https://ecobrick-prot.vercel.app/'
+  },
+  {
+    id: '9',
+    title: 'WebXR Shooter',
+    problem: 'Immersive AR gaming usually requires expensive hardware or heavy app installations.',
+    impact: 'Gesture-controlled AR game using MediaPipe for real-time hand tracking and Three.js for 3D rendering.',
+    tech: ['Three.js', 'MediaPipe', 'Web Audio API', 'TypeScript'],
+    image: 'https://picsum.photos/seed/shooter/800/600',
+    link: 'https://disc-shooter.vercel.app/'
+  },
+  {
+    id: '10',
+    title: 'CivilVision AI',
+    problem: 'Diagnostic gaps for structural elements and site defects on construction floors.',
+    impact: 'Mobile-first AI tool using multi-modal LLMs to identify RCC components and categorized defects (honeycombing, spalling) in real-time.',
+    tech: ['React 19', 'Gemini AI', 'Tailwind CSS', 'MediaDevices'],
+    image: 'https://picsum.photos/seed/civilvision/800/600',
+    link: 'https://civil-vis-ai.vercel.app/'
   }
 ];
 

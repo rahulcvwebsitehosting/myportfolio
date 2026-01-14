@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+
+import React, { Component, useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, Linkedin, Mail, Instagram, MessageCircle, X, Lock, Menu as MenuIcon, Globe, Cpu, Brain, MapPin, Download, Info, Award, BookOpen, GraduationCap, Mic2, Github, ArrowUp, Zap, Users, Trophy } from 'lucide-react';
 import { motion, useScroll, useSpring, AnimatePresence, animate } from 'framer-motion';
 import ChatWidget from './components/ChatWidget';
@@ -15,22 +16,23 @@ interface ErrorBoundaryState {
 }
 
 // Error Boundary Component
-// Fix: Added explicit constructor to ensure 'props' is correctly initialized and recognized by the TypeScript compiler.
+// Fix: Access props correctly via React.Component generic typing to resolve the 'Property props does not exist' error.
 class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  public state: ErrorBoundaryState = { hasError: false };
+
   constructor(props: ErrorBoundaryProps) {
     super(props);
-    this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError() {
+  static getDerivedStateFromError(_: any): ErrorBoundaryState {
     return { hasError: true };
   }
 
-  componentDidCatch(error: any, errorInfo: any) {
+  public componentDidCatch(error: any, errorInfo: any) {
     console.error("Uncaught error:", error, errorInfo);
   }
 
-  render() {
+  public render() {
     // Access state via this.state
     if (this.state.hasError) {
       return (
@@ -487,7 +489,7 @@ const App: React.FC = () => {
           </div>
         </RevealSection>
 
-        {/* NEW: Academic & Technical Engagements Section */}
+        {/* Academic & Technical Engagements Section */}
         <RevealSection id="engagements" className="py-24 px-6 border-b border-black bg-[#F1F0D1] scroll-mt-28">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
