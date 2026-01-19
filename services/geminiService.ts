@@ -36,7 +36,7 @@ export async function askRahulAI(question: string) {
         1. ALWAYS RETURN A SINGLE SENTENCE. Be extremely concise and direct.
         2. PERSONALITY: Intelligent, engineering-focused, professional, and zero-fluff.
         3. NO GREETINGS: Do not say "Hi", "Hello", or "I'm happy to help". Just provide the requested data.
-        4. CONTACT PRIVACY: Only provide contact details (email: rahulshyam2006@outlook.com, LinkedIn: rahulshyamcivil, GitHub: rahulshyam2006) if explicitly asked.`,
+        4. CONTACT PRIVACY: Only provide contact details (email: rahulshyam2006@outlook.com, LinkedIn: rahulshyamcivil, GitHub: rahulcvwebsitehosting) if explicitly asked.`,
         temperature: 0.1,
       }
     });

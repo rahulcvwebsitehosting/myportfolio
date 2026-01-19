@@ -1,4 +1,3 @@
-
 import React, { Component, useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, Linkedin, Mail, Instagram, MessageCircle, X, Lock, Menu as MenuIcon, Globe, Cpu, Brain, MapPin, Download, Info, Award, BookOpen, GraduationCap, Mic2, Github, ArrowUp, Zap, Users, Trophy } from 'lucide-react';
 import { motion, useScroll, useSpring, AnimatePresence, animate } from 'framer-motion';
@@ -16,8 +15,8 @@ interface ErrorBoundaryState {
 }
 
 // Error Boundary Component
-// Fix: Access props correctly via React.Component generic typing to resolve the 'Property props does not exist' error.
-class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+// Fix: Use the imported 'Component' directly instead of 'React.Component' to ensure properties like 'this.props' are correctly inherited and recognized by the compiler.
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   public state: ErrorBoundaryState = { hasError: false };
 
   constructor(props: ErrorBoundaryProps) {
@@ -33,7 +32,6 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   }
 
   public render() {
-    // Access state via this.state
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-[#F1F0D1] flex flex-col items-center justify-center p-6 text-center">
@@ -61,6 +59,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
       );
     }
 
+    // Fix: This line no longer triggers a TypeScript error because inheritance is properly handled.
     return this.props.children;
   }
 }
@@ -752,9 +751,9 @@ const App: React.FC = () => {
 
           <footer className="py-12 border-t border-black px-6">
             <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12 font-bold uppercase text-xs tracking-widest">
-              <a href="https://github.com/rahulshyam2006" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><Github size={16} /> GitHub</a>
+              <a href="https://github.com/rahulcvwebsitehosting" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><Github size={16} /> GitHub</a>
               <a href="https://www.linkedin.com/in/rahulshyamcivil/" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><Linkedin size={16} /> LinkedIn</a>
-              <a href="https://www.instagram.com/rahulshyam._/" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><Instagram size={16} /> Instagram</a>
+              <a href="https://www.instagram.com/rahulcvjps/" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><Instagram size={16} /> Instagram</a>
               <a href="https://wa.me/917305169964" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><MessageCircle size={16} /> WhatsApp</a>
               <a href="mailto:rahulshyam2006@outlook.com" className="flex items-center gap-2 hover:line-through transition-all"><Mail size={16} /> Email</a>
             </div>

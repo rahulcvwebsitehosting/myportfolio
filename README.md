@@ -28,7 +28,7 @@ This application serves as a comprehensive digital hub for technical project dem
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/rahulshyam2006/rahul-portfolio.git
+    git clone https://github.com/rahulcvwebsitehosting/rahul-portfolio.git
     ```
 
 2.  Navigate to the project directory:
@@ -70,3 +70,4 @@ Rahul S
 Rahul is a Civil Engineering student and Full-Stack Developer currently serving as the CTO for a Green-Tech infrastructure startup. He focuses on building technical solutions that bridge the gap between physical engineering constraints and digital efficiency.
 
 LinkedIn: https://www.linkedin.com/in/rahulshyamcivil/
+GitHub: https://github.com/rahulcvwebsitehosting
