@@ -24,7 +24,7 @@ export async function askRahulAI(question: string) {
         - Brand: "I don't just build websites — I engineer solutions."
 
         PROJECTS & EXPERTISE:
-        - CivilVision AI: Live at civil-vis-ai.vercel.app. Real-time structural component and defect identification using multi-modal AI for engineers.
+        - CivilVision AI: Live at civilvision-ai-455773821944.us-west1.run.app. Real-time structural component and defect identification using multi-modal AI for engineers.
         - EcoBrick Startup: Live at sngreensolutions.vercel.app. Waste-to-brick conversion.
         - EcoBrick Proto-X: Live at ecobrick-prot.vercel.app. 3D Digital Twin for industrial processes.
         - WebXR Shooter: Live at disc-shooter.vercel.app. Markerless hand-tracking AR game.

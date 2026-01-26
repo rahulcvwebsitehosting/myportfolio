@@ -106,7 +106,7 @@ export const PROJECTS: Project[] = [
     impact: 'Mobile-first AI tool using multi-modal LLMs to identify RCC components and categorized defects (honeycombing, spalling) in real-time.',
     tech: ['React 19', 'Gemini AI', 'Tailwind CSS', 'MediaDevices'],
     image: 'https://picsum.photos/seed/civilvision/800/600',
-    link: 'https://civil-vis-ai.vercel.app/'
+    link: 'https://civilvision-ai-455773821944.us-west1.run.app/'
   }
 ];
 
