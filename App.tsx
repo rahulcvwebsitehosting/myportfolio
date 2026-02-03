@@ -1,4 +1,5 @@
-import React, { Component, useState, useEffect, useRef } from 'react';
+
+import React, { Component, ReactNode, useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, Linkedin, Mail, Instagram, MessageCircle, X, Lock, Menu as MenuIcon, Globe, Cpu, Brain, MapPin, Download, Info, Award, BookOpen, GraduationCap, Mic2, Github, ArrowUp, Zap, Users, Trophy } from 'lucide-react';
 import { motion, useScroll, useSpring, AnimatePresence, animate } from 'framer-motion';
 import ChatWidget from './components/ChatWidget';
@@ -7,16 +8,19 @@ import { PROJECTS, SKILLS_DETAILED } from './constants';
 
 // Explicit interfaces for ErrorBoundary to ensure state and props are correctly identified by TypeScript
 interface ErrorBoundaryProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 interface ErrorBoundaryState {
   hasError: boolean;
 }
 
-// Error Boundary Component
-// Fix: Use the imported 'Component' directly instead of 'React.Component' to ensure properties like 'this.props' are correctly inherited and recognized by the compiler.
-class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+/**
+ * Error Boundary Component
+ * Using explicit Component import and standard React structure to ensure TypeScript correctly identifies props and state.
+ */
+// Fix: Using React.Component explicitly to avoid potential shadowing issues with the destructured import and to ensure correct generic typing for props.
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   public state: ErrorBoundaryState = { hasError: false };
 
   constructor(props: ErrorBoundaryProps) {
@@ -31,7 +35,8 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     console.error("Uncaught error:", error, errorInfo);
   }
 
-  public render() {
+  // Fix: Explicitly typing the return of render to ReactNode to satisfy strict type checks in complex component trees.
+  public render(): ReactNode {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-[#F1F0D1] flex flex-col items-center justify-center p-6 text-center">
@@ -59,7 +64,6 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
       );
     }
 
-    // Fix: This line no longer triggers a TypeScript error because inheritance is properly handled.
     return this.props.children;
   }
 }

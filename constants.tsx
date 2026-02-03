@@ -107,6 +107,51 @@ export const PROJECTS: Project[] = [
     tech: ['React 19', 'Gemini AI', 'Tailwind CSS', 'MediaDevices'],
     image: 'https://picsum.photos/seed/civilvision/800/600',
     link: 'https://civilvision-ai-455773821944.us-west1.run.app/'
+  },
+  {
+    id: '11',
+    title: 'Rahul AI',
+    problem: 'Fragmented workflows for chat, file analysis, and code editing.',
+    impact: 'Intelligent workspace integrating chat, web search, image generation, and a collaborative canvas for document/code editing.',
+    tech: ['React', 'Gemini API', 'Canvas', 'Web Search'],
+    image: 'https://picsum.photos/seed/rahulai/800/600',
+    link: 'https://rahul-ai-your-intelligent-workspace-263477567633.us-west1.run.app/'
+  },
+  {
+    id: '12',
+    title: 'TravelCrew AI',
+    problem: 'Manual hotel research is time-consuming and inefficient.',
+    impact: 'Multi-agent AI platform that researches, compares, and recommends hotels in India via natural conversation.',
+    tech: ['Next.js', 'AI Agents', 'Travel Discovery'],
+    image: 'https://picsum.photos/seed/travelcrew/800/600',
+    link: 'https://travelcrew-ai-944531131576.us-west1.run.app'
+  },
+  {
+    id: '14',
+    title: 'BuildFlow CRM',
+    problem: 'Poor coordination between job sites and office staff in construction projects.',
+    impact: 'CRM specializing in job tracking, site-to-office communication, and AI-powered project summaries.',
+    tech: ['Full Stack', 'AI Summaries', 'Construction CRM'],
+    image: 'https://picsum.photos/seed/buildflow/800/600',
+    link: 'https://buildflow-crm-487875595367.us-west1.run.app'
+  },
+  {
+    id: '16',
+    title: 'CV Craft',
+    problem: 'Creating structured, high-impact resumes is a hurdle for many job seekers.',
+    impact: 'AI-powered resume builder that structures content through guided LLM-powered technical inputs.',
+    tech: ['React', 'LLM Integration', 'Resume Engineering'],
+    image: 'https://picsum.photos/seed/cvcraft/800/600',
+    link: 'https://cvresume-crafter.vercel.app/'
+  },
+  {
+    id: '17',
+    title: 'KM Periyava Sannadhi',
+    problem: 'Preserving cultural heritage through digital mediums with high accessibility.',
+    impact: 'Bilingual platform for Sri Kanchi Mahaperiyava Sannadhi, focusing on community connection and preservation.',
+    tech: ['React', 'Bilingual UI', 'Cultural Tech'],
+    image: 'https://picsum.photos/seed/temple/800/600',
+    link: 'https://km-periyava-sannadhi-329840856867.us-west1.run.app/'
   }
 ];
 

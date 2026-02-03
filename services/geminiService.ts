@@ -24,13 +24,18 @@ export async function askRahulAI(question: string) {
         - Brand: "I don't just build websites — I engineer solutions."
 
         PROJECTS & EXPERTISE:
-        - CivilVision AI: Live at civilvision-ai-455773821944.us-west1.run.app. Real-time structural component and defect identification using multi-modal AI for engineers.
+        - Rahul AI: Intelligent workspace for chat, file analysis, web search, and collaborative editing. Live at: https://rahul-ai-your-intelligent-workspace-263477567633.us-west1.run.app/
+        - TravelCrew AI: Multi-agent hotel discovery platform for India. Live at: https://travelcrew-ai-944531131576.us-west1.run.app
+        - BuildFlow CRM: Construction management system for jobs, customers, and site-to-office coordination. Live at: https://buildflow-crm-487875595367.us-west1.run.app
+        - CV Craft: AI-powered professional resume builder. Live at: https://cvresume-crafter.vercel.app/
+        - KM Periyava Sannadhi: Bilingual cultural platform for temple community preservation. Live at: https://km-periyava-sannadhi-329840856867.us-west1.run.app/
+        - CivilVision AI: Real-time structural defect identification using multi-modal AI. Live at: https://civilvision-ai-455773821944.us-west1.run.app/
         - EcoBrick Startup: Live at sngreensolutions.vercel.app. Waste-to-brick conversion.
         - EcoBrick Proto-X: Live at ecobrick-prot.vercel.app. 3D Digital Twin for industrial processes.
-        - WebXR Shooter: Live at disc-shooter.vercel.app. Markerless hand-tracking AR game.
-        - Hostel Planner: AI room layout tool.
-        - TunnelViz: Tunnel engineering educational platform.
-        - Other: TypeArena, Surya Clothing, Mohan Hot’n Chat.
+        - WebXR Shooter: Markerless hand-tracking AR game. Live at: https://disc-shooter.vercel.app/
+        - Hostel Planner: AI room layout tool. Live at: https://hostel-planner.vercel.app/
+        - TunnelViz: Tunnel engineering educational platform. Live at: https://tunnel-viz.vercel.app/
+        - Other: TypeArena (https://typearenacv.vercel.app/), Surya Clothing (https://surya-clothing.vercel.app/), Mohan Hot’n Chat (https://mohan-hotn-chat.vercel.app/).
 
         STRICT COMMUNICATION GUIDELINES:
         1. ALWAYS RETURN A SINGLE SENTENCE. Be extremely concise and direct.
