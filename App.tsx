@@ -186,7 +186,17 @@ const App: React.FC = () => {
     { name: "KPR Institute of Engineering & Tech", role: "Workshop & Symposium" },
     { name: "Sasurie College of Engineering", role: "Technical Paper Presentation" },
     { name: "SRM Institute of Science & Tech", role: "Paper Presentation (Chennai)" },
-    { name: "Erode Sengunthar Engineering College", role: "National Conference & Presentations" }
+    { name: "Erode Sengunthar Engineering College", role: "National Conference & Presentations" },
+    { name: "Government College of Engineering", role: "Technical Engagement" },
+    { name: "Nandha Engineering College", role: "Technical Engagement" },
+    { name: "Velalar College of Engineering and Technology", role: "Technical Engagement" },
+    { name: "SSM College", role: "Technical Engagement" },
+    { name: "Government College of Technology", role: "Technical Engagement" },
+    { name: "Coimbatore Institute of Technology", role: "Technical Engagement" },
+    { name: "Sri Ramakrishna College Of Engineering", role: "Technical Engagement" },
+    { name: "Bannari Amman Institute of Technology", role: "Technical Engagement" },
+    { name: "SNS College of Technology/Engineering", role: "Technical Engagement" },
+    { name: "Sri Krishna College of Technology", role: "Technical Engagement" }
   ];
 
   const menuItems = [
@@ -542,28 +552,62 @@ const App: React.FC = () => {
                   <Zap size={32} />
                   <h3 className="font-display text-3xl font-black uppercase tracking-tight">Hackathons</h3>
                 </div>
-                <div className="bg-black text-[#F1F0D1] p-8 rounded-2xl border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] relative overflow-hidden h-full">
+                <div className="bg-black text-[#F1F0D1] p-8 rounded-2xl border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] relative overflow-hidden flex flex-col justify-between">
                   <div className="space-y-8 relative z-10">
                     <div className="flex gap-4">
                       <Trophy className="shrink-0 text-yellow-400" size={28} />
                       <div>
                         <h4 className="font-bold uppercase mb-1">Competitive Edge</h4>
-                        <p className="text-xs opacity-70 leading-relaxed">Active participant in state-level inter-college technical hackathons and ideations.</p>
+                        <p className="text-xs opacity-70 leading-relaxed">Active participant in state-level inter-college technical hackathons and ideations, consistently placing in top tiers.</p>
                       </div>
                     </div>
+                    
                     <div className="flex gap-4">
                       <Users className="shrink-0 text-cyan-400" size={28} />
                       <div>
                         <h4 className="font-bold uppercase mb-1">Technical Leadership</h4>
-                        <p className="text-xs opacity-70 leading-relaxed">Frequently lead technical squads to build functional prototypes under strict 24/48-hour sprints.</p>
+                        <p className="text-xs opacity-70 leading-relaxed">Frequently lead technical squads to build functional prototypes under strict 24/48-hour sprints, managing both frontend and system architecture.</p>
                       </div>
                     </div>
-                    <div className="pt-6 border-t border-[#F1F0D1]/20">
-                      <p className="text-[10px] font-mono opacity-50 uppercase tracking-widest">Core focus: functional prototypes, system logic, & agile leadership.</p>
+
+                    <div className="flex gap-4">
+                      <Cpu className="shrink-0 text-purple-400" size={28} />
+                      <div>
+                        <h4 className="font-bold uppercase mb-1">Rapid Prototyping</h4>
+                        <p className="text-xs opacity-70 leading-relaxed">Specialized in turning abstract concepts into MVP-ready applications within hours using modern tech stacks.</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4 pt-4">
+                      <h5 className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-40">Hackathon Toolkit</h5>
+                      <div className="flex flex-wrap gap-2">
+                        {['React', 'Node.js', 'Firebase', 'Tailwind', 'Vite', 'Gemini AI', 'Framer Motion'].map(tool => (
+                          <span key={tool} className="px-2 py-1 border border-[#F1F0D1]/20 rounded text-[9px] font-mono uppercase tracking-wider hover:bg-[#F1F0D1] hover:text-black transition-colors cursor-default">
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.05]">
-                    <Zap size={300} />
+
+                  <div className="mt-12 pt-6 border-t border-[#F1F0D1]/10 relative z-10">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-[10px] font-mono opacity-50 uppercase tracking-widest">Recent Participation</span>
+                      <div className="flex -space-x-2">
+                        {[1, 2, 3].map(i => (
+                          <div key={i} className="w-6 h-6 rounded-full border-2 border-black bg-[#F1F0D1]/10 flex items-center justify-center">
+                            <Award size={10} className="text-[#F1F0D1]/40" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <p className="text-[10px] font-mono opacity-50 uppercase tracking-widest leading-relaxed">
+                      Core focus: functional prototypes, system logic, & agile leadership across Tamil Nadu's premier engineering circuits.
+                    </p>
+                  </div>
+
+                  <div className="absolute -bottom-10 -right-10 pointer-events-none opacity-[0.03]">
+                    <Zap size={400} />
                   </div>
                 </div>
               </div>
