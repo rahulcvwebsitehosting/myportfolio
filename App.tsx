@@ -1,6 +1,6 @@
 
 import React, { Component, ReactNode, useState, useEffect, useRef } from 'react';
-import { ArrowUpRight, Linkedin, Mail, Instagram, MessageCircle, X, Lock, Menu as MenuIcon, Globe, Cpu, Brain, MapPin, Download, Info, Award, BookOpen, GraduationCap, Mic2, Github, ArrowUp, Zap, Users, Trophy } from 'lucide-react';
+import { ArrowUpRight, Linkedin, Mail, Instagram, MessageCircle, X, Lock, Menu as MenuIcon, Globe, Cpu, Brain, MapPin, Download, Info, Award, BookOpen, GraduationCap, Mic2, Github, ArrowUp, Zap, Users, Trophy, Twitter, AtSign } from 'lucide-react';
 import { motion, useScroll, useSpring, AnimatePresence, animate } from 'framer-motion';
 import ChatWidget from './components/ChatWidget';
 import Marquee from './components/Marquee';
@@ -423,13 +423,19 @@ const App: React.FC = () => {
                   </div>
 
                   <div className="space-y-6">
-                    <h3 className="font-display text-2xl font-black uppercase border-b-2 border-black pb-2">Active Roles</h3>
+                    <h3 className="font-display text-2xl font-black uppercase border-b-2 border-black pb-2">Active Roles & Experience</h3>
                     <div className="space-y-6">
                       <div>
-                        <h4 className="font-black">Chief Technology Officer</h4>
-                        <p className="text-sm font-bold opacity-60">Green-Tech Infrastructure Startup</p>
-                        <p className="text-xs font-mono">2025 – Present</p>
-                        <p className="text-xs mt-2 opacity-70">Leading technical development for a government-funded climate-tech venture converting waste into construction bricks.</p>
+                        <h4 className="font-black">BIM Intern</h4>
+                        <p className="text-sm font-bold opacity-60">Pinnacle Future Build Pvt. Ltd., Madurai</p>
+                        <p className="text-xs font-mono">June – July 2026</p>
+                        <p className="text-xs mt-2 opacity-70">Learned Autodesk Revit from scratch to production-level proficiency. Assigned to an active hostel design project being developed within the Pinnacle campus — contributed to BIM modeling and documentation for the project.</p>
+                      </div>
+                      <div>
+                        <h4 className="font-black">Site Engineering Intern</h4>
+                        <p className="text-sm font-bold opacity-60">Tata Projects Limited — Chennai Underground Metro Project</p>
+                        <p className="text-xs font-mono">Jan 2025</p>
+                        <p className="text-xs mt-2 opacity-70">Worked as lead site manager on the Chennai Underground Metro project, gaining hands-on experience in tunnel construction, guide wall execution, and large-scale underground infrastructure.</p>
                       </div>
                       <div>
                         <h4 className="font-black">Web Developer & Builder</h4>
@@ -801,6 +807,8 @@ const App: React.FC = () => {
             <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12 font-bold uppercase text-xs tracking-widest">
               <a href="https://github.com/rahulcvwebsitehosting" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><Github size={16} /> GitHub</a>
               <a href="https://www.linkedin.com/in/rahulshyamcivil/" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><Linkedin size={16} /> LinkedIn</a>
+              <a href="https://x.com/RahulShyamCv" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><Twitter size={16} /> X.com</a>
+              <a href="https://www.threads.net/@RahulCvJPS" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><AtSign size={16} /> Threads</a>
               <a href="https://www.instagram.com/rahulcvjps/" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><Instagram size={16} /> Instagram</a>
               <a href="https://wa.me/917305169964" target="_blank" rel="noopener" className="flex items-center gap-2 hover:line-through transition-all"><MessageCircle size={16} /> WhatsApp</a>
               <a href="mailto:rahulshyam2006@outlook.com" className="flex items-center gap-2 hover:line-through transition-all"><Mail size={16} /> Email</a>

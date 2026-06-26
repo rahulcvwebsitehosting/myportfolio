@@ -114,6 +114,8 @@ Designed and Engineered by **Rahul Shyam**.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Rahul_Shyam-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/rahulshyamcivil)
 [![GitHub](https://img.shields.io/badge/GitHub-rahulcvwebsitehosting-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rahulcvwebsitehosting)
+[![X](https://img.shields.io/badge/X-RahulShyamCv-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/RahulShyamCv)
+[![Threads](https://img.shields.io/badge/Threads-RahulCvJPS-000000?style=for-the-badge&logo=threads&logoColor=white)](https://www.threads.net/@RahulCvJPS)
 [![Email](https://img.shields.io/badge/Email-rahulshyam2006@outlook.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:rahulshyam2006@outlook.com)
 
 ---
