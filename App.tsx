@@ -308,7 +308,7 @@ const App: React.FC = () => {
                     Builder
                   </span>
                   <div className="absolute -top-4 -right-4 bg-black text-[#F1F0D1] text-[10px] md:text-xs font-black px-4 py-1 rotate-12 uppercase">
-                    CTO & Engineer
+                    Full-Stack Engineer
                   </div>
                 </div>
                 
@@ -705,13 +705,20 @@ const App: React.FC = () => {
                         <span className="font-mono text-[10px] mb-2 block opacity-60 uppercase">
                           {String(index + 1).padStart(2, '0')} / {project.tech.join(' • ')} 
                         </span>
-                        <h3 className="font-display text-4xl md:text-6xl font-bold uppercase tracking-tighter">
-                          {project.title}
-                          {!project.link && <span className="ml-4 text-xs font-mono opacity-30 italic">(Building...)</span>}
-                        </h3>
+                        <div className="flex flex-col md:flex-row md:items-baseline gap-3">
+                          <h3 className="font-display text-4xl md:text-6xl font-bold uppercase tracking-tighter">
+                            {project.title}
+                          </h3>
+                          {project.link && (
+                            <span className="inline-flex items-center gap-1 text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 group-hover:text-emerald-700 transition-colors py-1">
+                              Live Demo <ArrowUpRight size={14} />
+                            </span>
+                          )}
+                          {!project.link && <span className="text-xs font-mono opacity-30 italic tracking-normal lowercase">(building...)</span>}
+                        </div>
                       </div>
-                      <div className="flex-1 max-w-md opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
-                        <p className="text-lg font-medium leading-tight">{project.impact}</p>
+                      <div className="flex-1 max-w-md md:opacity-0 md:group-hover:opacity-100 opacity-100 transition-all duration-500 transform md:translate-x-4 md:group-hover:translate-x-0">
+                        <p className="text-base md:text-lg font-medium leading-normal md:leading-tight">{project.impact}</p>
                       </div>
                       <div className={`w-16 h-16 rounded-full border border-current flex items-center justify-center transition-all ${project.link ? 'group-hover:scale-110' : ''}`}>
                         {project.link ? <ArrowUpRight size={32} /> : <Lock size={24} />}
@@ -814,7 +821,7 @@ const App: React.FC = () => {
               <a href="mailto:rahulshyam2006@outlook.com" className="flex items-center gap-2 hover:line-through transition-all"><Mail size={16} /> Email</a>
             </div>
             <div className="text-center mt-12 opacity-30 font-mono text-[9px] tracking-[0.4em] uppercase">
-              RAHUL SHYAM • CTO & FULL STACK ENGINEER • {new Date().getFullYear()}
+              RAHUL SHYAM • FULL-STACK ENGINEER • {new Date().getFullYear()}
             </div>
           </footer>
         </RevealSection>
