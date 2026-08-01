@@ -180,10 +180,25 @@ const App: React.FC = () => {
     }
   ];
 
-  const collegePresentations = [
-    { name: "VIHANSA 2026 — Sri Ramakrishna Institute of Technology", role: "🥇 1st Prize (Paper Presentation) · 🥈 2nd Prize (Project Expo). Mentor: K. S. Mohanraj." },
-    { name: "XPRIZE 2026 (Build with Gemini)", role: "Participant. Built AutoBOM — AI Bill of Materials generator with a paying customer (₹199)." },
-    { name: "Google Scholar Publications", role: '"Gait Recognition System Using Model-Based Technique" (2026) & "Advanced Study On Wireless Techniques In Networking" (2025).' }
+  const notableWins = [
+    {
+      title: "VIHANSA 2026 — Sri Ramakrishna Institute of Technology",
+      detail: "🥇 1st Prize Paper Presentation (₹3,000) & 🥈 2nd Prize Project Expo (₹2,000). Mentor: K. S. Mohanraj."
+    },
+    {
+      title: "XPRIZE 2026 (Build with Gemini)",
+      detail: "Participant. Built AutoBOM — an AI Bill of Materials generator with a documented paying customer (₹199). Reduced bidding time from 4 days to 5 minutes."
+    },
+    {
+      title: "Google Scholar Publications",
+      detail: "\"Gait Recognition System Using Model-Based Technique\" (2026) & \"Advanced Study On Wireless Techniques In Networking\" (2025)."
+    }
+  ];
+
+  const participatedAt = [
+    'PSG Tech', 'Kongu Engineering', 'KPR Institute', 'SRM Chennai', 'GCT', 'CIT',
+    'Bannari Amman', 'SNS College', 'Sri Krishna', 'Sasurie', 'Nandha', 'Velalar',
+    'SSM', 'Sri Ramakrishna', 'GCE', 'ESEC National Conference'
   ];
 
   const menuItems = [
@@ -505,98 +520,53 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-[2fr_1fr] gap-12">
-              {/* College Presentations List */}
+            <div className="space-y-12">
+              {/* Tier 1 — Notable Wins */}
               <div className="space-y-6">
-                <div className="flex items-center gap-3 mb-8">
-                  <Mic2 size={32} />
-                  <h3 className="font-display text-3xl font-black uppercase tracking-tight">Achievements & Publications</h3>
+                <div className="flex items-center gap-3">
+                  <Trophy size={32} />
+                  <h3 className="font-display text-3xl font-black uppercase tracking-tight">Notable Wins</h3>
                 </div>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {collegePresentations.map((college, idx) => (
+                <div className="grid md:grid-cols-3 gap-4">
+                  {notableWins.map((win, idx) => (
                     <motion.div 
                       key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.1 }}
-                      className="group bg-white border-2 border-black p-6 rounded-xl hover:bg-black hover:text-[#F1F0D1] transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1"
+                      className="group bg-white border-2 border-black p-6 rounded-xl hover:bg-black hover:text-[#F1F0D1] transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 flex flex-col"
                     >
-                      <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-display font-black uppercase text-sm leading-tight max-w-[80%]">{college.name}</h4>
-                        <Award size={16} className="opacity-40 group-hover:opacity-100" />
+                      <div className="flex justify-between items-start mb-3">
+                        <h4 className="font-display font-black uppercase text-sm leading-tight">{win.title}</h4>
+                        <Award size={16} className="opacity-40 group-hover:opacity-100 shrink-0" />
                       </div>
-                      <p className="text-[10px] font-mono font-bold uppercase tracking-widest opacity-50 group-hover:opacity-80">
-                        {college.role}
+                      <p className="text-[11px] font-mono font-bold uppercase tracking-wider opacity-60 group-hover:opacity-90 leading-relaxed">
+                        {win.detail}
                       </p>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
-              {/* Hackathons & Competitions */}
+              {/* Tier 2 — Also Participated At */}
               <div className="space-y-6">
-                <div className="flex items-center gap-3 mb-8">
-                  <Zap size={32} />
-                  <h3 className="font-display text-3xl font-black uppercase tracking-tight">Hackathons</h3>
+                <div className="flex items-center gap-3">
+                  <Mic2 size={32} />
+                  <h3 className="font-display text-3xl font-black uppercase tracking-tight">Also Participated At</h3>
                 </div>
-                <div className="bg-black text-[#F1F0D1] p-8 rounded-2xl border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] relative overflow-hidden flex flex-col justify-between">
-                  <div className="space-y-8 relative z-10">
-                    <div className="flex gap-4">
-                      <Trophy className="shrink-0 text-yellow-400" size={28} />
-                      <div>
-                        <h4 className="font-bold uppercase mb-1">VIHANSA 2026 Double Win</h4>
-                        <p className="text-xs opacity-70 leading-relaxed">🥇 1st Prize Paper Presentation (₹3,000) & 🥈 2nd Prize Project Expo (₹2,000) at Sri Ramakrishna Institute of Technology. Mentor: K. S. Mohanraj.</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex gap-4">
-                      <Users className="shrink-0 text-cyan-400" size={28} />
-                      <div>
-                        <h4 className="font-bold uppercase mb-1">XPRIZE 2026 — Build with Gemini</h4>
-                        <p className="text-xs opacity-70 leading-relaxed">Built AutoBOM, an AI Bill of Materials generator with a documented paying customer (₹199). Reduced bidding time from 4 days to 5 minutes.</p>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-4">
-                      <Cpu className="shrink-0 text-purple-400" size={28} />
-                      <div>
-                        <h4 className="font-bold uppercase mb-1">Google Scholar Publications</h4>
-                        <p className="text-xs opacity-70 leading-relaxed">"Gait Recognition System Using Model-Based Technique" (2026) & "Advanced Study On Wireless Techniques In Networking" (2025).</p>
-                      </div>
-                    </div>
-
-                    <div className="space-y-4 pt-4">
-                      <h5 className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-40">Hackathon Toolkit</h5>
-                      <div className="flex flex-wrap gap-2">
-                        {['Gemini Vision', 'React', 'TypeScript', 'Vanilla JS', 'Electron', 'Supabase', 'OpenCV'].map(tool => (
-                          <span key={tool} className="px-2 py-1 border border-[#F1F0D1]/20 rounded text-[9px] font-mono uppercase tracking-wider hover:bg-[#F1F0D1] hover:text-black transition-colors cursor-default">
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                <div className="bg-black text-[#F1F0D1] p-6 md:p-8 rounded-2xl border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] relative overflow-hidden">
+                  <div className="flex flex-wrap gap-2 relative z-10">
+                    {participatedAt.map((place, idx) => (
+                      <span key={idx} className="px-3 py-1.5 border border-[#F1F0D1]/30 rounded-full text-xs font-mono uppercase tracking-wider hover:bg-[#F1F0D1] hover:text-black transition-colors cursor-default">
+                        {place}
+                      </span>
+                    ))}
                   </div>
-
-                  <div className="mt-12 pt-6 border-t border-[#F1F0D1]/10 relative z-10">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-[10px] font-mono opacity-50 uppercase tracking-widest">Verified Track Record</span>
-                      <div className="flex -space-x-2">
-                        {[1, 2, 3].map(i => (
-                          <div key={i} className="w-6 h-6 rounded-full border-2 border-black bg-[#F1F0D1]/10 flex items-center justify-center">
-                            <Award size={10} className="text-[#F1F0D1]/40" />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <p className="text-[10px] font-mono opacity-50 uppercase tracking-widest leading-relaxed">
-                      Outcomes over attendance — prizes, paying customers, and peer-reviewed research.
-                    </p>
-                  </div>
-
-                  <div className="absolute -bottom-10 -right-10 pointer-events-none opacity-[0.03]">
-                    <Zap size={400} />
-                  </div>
+                  <p className="text-[10px] font-mono opacity-50 uppercase tracking-widest mt-5 relative z-10">
+                    Symposiums & paper presentations — attendance, not wins.
+                  </p>
+                  <Zap className="absolute -bottom-6 -right-6 pointer-events-none opacity-[0.04]" size={220} />
                 </div>
               </div>
             </div>
