@@ -181,22 +181,9 @@ const App: React.FC = () => {
   ];
 
   const collegePresentations = [
-    { name: "PSG College of Technology", role: "Paper Presentation & Workshop" },
-    { name: "Kongu Engineering College", role: "Technical Paper Presentation" },
-    { name: "KPR Institute of Engineering & Tech", role: "Workshop & Symposium" },
-    { name: "Sasurie College of Engineering", role: "Technical Paper Presentation" },
-    { name: "SRM Institute of Science & Tech", role: "Paper Presentation (Chennai)" },
-    { name: "Erode Sengunthar Engineering College", role: "National Conference & Presentations" },
-    { name: "Government College of Engineering", role: "Technical Engagement" },
-    { name: "Nandha Engineering College", role: "Technical Engagement" },
-    { name: "Velalar College of Engineering and Technology", role: "Technical Engagement" },
-    { name: "SSM College", role: "Technical Engagement" },
-    { name: "Government College of Technology", role: "Technical Engagement" },
-    { name: "Coimbatore Institute of Technology", role: "Technical Engagement" },
-    { name: "Sri Ramakrishna College Of Engineering", role: "Technical Engagement" },
-    { name: "Bannari Amman Institute of Technology", role: "Technical Engagement" },
-    { name: "SNS College of Technology/Engineering", role: "Technical Engagement" },
-    { name: "Sri Krishna College of Technology", role: "Technical Engagement" }
+    { name: "VIHANSA 2026 — Sri Ramakrishna Institute of Technology", role: "🥇 1st Prize (Paper Presentation) · 🥈 2nd Prize (Project Expo). Mentor: K. S. Mohanraj." },
+    { name: "XPRIZE 2026 (Build with Gemini)", role: "Participant. Built AutoBOM — AI Bill of Materials generator with a paying customer (₹199)." },
+    { name: "Google Scholar Publications", role: '"Gait Recognition System Using Model-Based Technique" (2026) & "Advanced Study On Wireless Techniques In Networking" (2025).' }
   ];
 
   const menuItems = [
@@ -289,9 +276,9 @@ const App: React.FC = () => {
                   ease: [0.16, 1, 0.3, 1],
                   opacity: { duration: 1 }
                 }}
-                className="font-display text-7xl md:text-[11rem] font-black tracking-tighter leading-none uppercase"
+                className="font-display text-6xl md:text-[9rem] font-black tracking-tighter leading-none uppercase"
               >
-                Rahul Shyam
+                Rahul S — Civil Engineer<br/>& Full-Stack AI Builder
               </motion.h1>
               
               <motion.div 
@@ -305,10 +292,10 @@ const App: React.FC = () => {
                 
                 <div className="inline-block px-10 md:px-20 py-6 md:py-10 border-2 border-black rounded-[50%_10%_50%_10%] relative group hover:bg-black hover:text-[#F1F0D1] transition-all duration-500">
                   <span className="font-display text-4xl md:text-8xl font-black italic tracking-tighter text-outline group-hover:text-inherit">
-                    Builder
+                    $0 Infra
                   </span>
                   <div className="absolute -top-4 -right-4 bg-black text-[#F1F0D1] text-[10px] md:text-xs font-black px-4 py-1 rotate-12 uppercase">
-                    Full-Stack Engineer
+                    Multi-Provider Routing
                   </div>
                 </div>
                 
@@ -319,9 +306,9 @@ const App: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.6 }}
                 transition={{ delay: 1, duration: 1 }}
-                className="mt-12 font-display text-xl md:text-3xl font-bold italic"
+                className="mt-12 font-display text-lg md:text-2xl font-bold italic"
               >
-                “I don’t just build websites — I engineer solutions.”
+                “I engineer real-world AI applications and civil engineering tools at $0 infrastructure cost using multi-provider model routing.”
               </motion.p>
             </div>
           </div>
@@ -330,7 +317,7 @@ const App: React.FC = () => {
           <div className="absolute bottom-1/4 right-10 w-4 h-4 border-r-2 border-b-2 border-black/10"></div>
         </section>
 
-        <Marquee text="Design • Code • Engineer • Solution" />
+        <Marquee text="Civil Engineering • Full-Stack AI • $0 Infrastructure • Multi-Provider Routing" />
 
         {/* About Section */}
         <RevealSection id="about" className="py-24 px-6 border-b border-black scroll-mt-28 relative">
@@ -401,7 +388,7 @@ const App: React.FC = () => {
                     </div>
                   </div>
                   <p className="mt-12 text-2xl md:text-4xl leading-snug font-medium opacity-80 italic">
-                    "I’m Rahul S, a web developer and engineering-focused builder who designs and develops intelligent, real-world web experiences. I combine clean UI, logical system thinking, and modern technology to solve practical problems."
+                    "I combine civil engineering domain expertise with full-stack development, building production-grade AI tools by hacking free-tier model providers (Cerebras, Cloudflare, OpenRouter, Z.AI)."
                   </p>
                 </div>
 
@@ -426,21 +413,16 @@ const App: React.FC = () => {
                     <h3 className="font-display text-2xl font-black uppercase border-b-2 border-black pb-2">Active Roles & Experience</h3>
                     <div className="space-y-6">
                       <div>
-                        <h4 className="font-black">BIM Intern</h4>
-                        <p className="text-sm font-bold opacity-60">Pinnacle Future Build Pvt. Ltd., Madurai</p>
-                        <p className="text-xs font-mono">June – July 2026</p>
-                        <p className="text-xs mt-2 opacity-70">Learned Autodesk Revit from scratch to production-level proficiency. Assigned to an active hostel design project being developed within the Pinnacle campus — contributed to BIM modeling and documentation for the project.</p>
-                      </div>
-                      <div>
                         <h4 className="font-black">Site Engineering Intern</h4>
                         <p className="text-sm font-bold opacity-60">Tata Projects Limited — Chennai Underground Metro Project</p>
                         <p className="text-xs font-mono">Jan 2025</p>
-                        <p className="text-xs mt-2 opacity-70">Worked as lead site manager on the Chennai Underground Metro project, gaining hands-on experience in tunnel construction, guide wall execution, and large-scale underground infrastructure.</p>
+                        <p className="text-xs mt-2 opacity-70">Shadowed lead site engineers on active tunnel construction and guide-wall execution. Gained hands-on perspective on large-scale underground infrastructure to inform my civil-tech software designs.</p>
                       </div>
                       <div>
-                        <h4 className="font-black">Web Developer & Builder</h4>
-                        <p className="text-sm font-bold opacity-60">Freelance</p>
-                        <p className="text-xs font-mono">2024 – Present</p>
+                        <h4 className="font-black">BIM Intern</h4>
+                        <p className="text-sm font-bold opacity-60">Pinnacle Future Build Pvt. Ltd., Madurai</p>
+                        <p className="text-xs font-mono">June – July 2026</p>
+                        <p className="text-xs mt-2 opacity-70">Achieved production-level proficiency in Autodesk Revit. Contributed to BIM modeling and documentation for an active hostel design project.</p>
                       </div>
                     </div>
                   </div>
@@ -518,7 +500,7 @@ const App: React.FC = () => {
               </h2>
               <div className="max-w-md text-right hidden md:block">
                 <p className="font-bold opacity-60 uppercase text-xs tracking-widest leading-relaxed">
-                  Active presence in the Tamil Nadu engineering ecosystem through research, paper presentations, and collaborative workshops.
+                  Outcomes over attendance — verified prizes, paying customers, and peer-reviewed research across Tamil Nadu's engineering circuit.
                 </p>
               </div>
             </div>
@@ -528,7 +510,7 @@ const App: React.FC = () => {
               <div className="space-y-6">
                 <div className="flex items-center gap-3 mb-8">
                   <Mic2 size={32} />
-                  <h3 className="font-display text-3xl font-black uppercase tracking-tight">Paper Presentations</h3>
+                  <h3 className="font-display text-3xl font-black uppercase tracking-tight">Achievements & Publications</h3>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
                   {collegePresentations.map((college, idx) => (
@@ -563,31 +545,31 @@ const App: React.FC = () => {
                     <div className="flex gap-4">
                       <Trophy className="shrink-0 text-yellow-400" size={28} />
                       <div>
-                        <h4 className="font-bold uppercase mb-1">Competitive Edge</h4>
-                        <p className="text-xs opacity-70 leading-relaxed">Active participant in state-level inter-college technical hackathons and ideations, consistently placing in top tiers.</p>
+                        <h4 className="font-bold uppercase mb-1">VIHANSA 2026 Double Win</h4>
+                        <p className="text-xs opacity-70 leading-relaxed">🥇 1st Prize Paper Presentation (₹3,000) & 🥈 2nd Prize Project Expo (₹2,000) at Sri Ramakrishna Institute of Technology. Mentor: K. S. Mohanraj.</p>
                       </div>
                     </div>
                     
                     <div className="flex gap-4">
                       <Users className="shrink-0 text-cyan-400" size={28} />
                       <div>
-                        <h4 className="font-bold uppercase mb-1">Technical Leadership</h4>
-                        <p className="text-xs opacity-70 leading-relaxed">Frequently lead technical squads to build functional prototypes under strict 24/48-hour sprints, managing both frontend and system architecture.</p>
+                        <h4 className="font-bold uppercase mb-1">XPRIZE 2026 — Build with Gemini</h4>
+                        <p className="text-xs opacity-70 leading-relaxed">Built AutoBOM, an AI Bill of Materials generator with a documented paying customer (₹199). Reduced bidding time from 4 days to 5 minutes.</p>
                       </div>
                     </div>
 
                     <div className="flex gap-4">
                       <Cpu className="shrink-0 text-purple-400" size={28} />
                       <div>
-                        <h4 className="font-bold uppercase mb-1">Rapid Prototyping</h4>
-                        <p className="text-xs opacity-70 leading-relaxed">Specialized in turning abstract concepts into MVP-ready applications within hours using modern tech stacks.</p>
+                        <h4 className="font-bold uppercase mb-1">Google Scholar Publications</h4>
+                        <p className="text-xs opacity-70 leading-relaxed">"Gait Recognition System Using Model-Based Technique" (2026) & "Advanced Study On Wireless Techniques In Networking" (2025).</p>
                       </div>
                     </div>
 
                     <div className="space-y-4 pt-4">
                       <h5 className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-40">Hackathon Toolkit</h5>
                       <div className="flex flex-wrap gap-2">
-                        {['React', 'Node.js', 'Firebase', 'Tailwind', 'Vite', 'Gemini AI', 'Framer Motion'].map(tool => (
+                        {['Gemini Vision', 'React', 'TypeScript', 'Vanilla JS', 'Electron', 'Supabase', 'OpenCV'].map(tool => (
                           <span key={tool} className="px-2 py-1 border border-[#F1F0D1]/20 rounded text-[9px] font-mono uppercase tracking-wider hover:bg-[#F1F0D1] hover:text-black transition-colors cursor-default">
                             {tool}
                           </span>
@@ -598,7 +580,7 @@ const App: React.FC = () => {
 
                   <div className="mt-12 pt-6 border-t border-[#F1F0D1]/10 relative z-10">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-[10px] font-mono opacity-50 uppercase tracking-widest">Recent Participation</span>
+                      <span className="text-[10px] font-mono opacity-50 uppercase tracking-widest">Verified Track Record</span>
                       <div className="flex -space-x-2">
                         {[1, 2, 3].map(i => (
                           <div key={i} className="w-6 h-6 rounded-full border-2 border-black bg-[#F1F0D1]/10 flex items-center justify-center">
@@ -608,7 +590,7 @@ const App: React.FC = () => {
                       </div>
                     </div>
                     <p className="text-[10px] font-mono opacity-50 uppercase tracking-widest leading-relaxed">
-                      Core focus: functional prototypes, system logic, & agile leadership across Tamil Nadu's premier engineering circuits.
+                      Outcomes over attendance — prizes, paying customers, and peer-reviewed research.
                     </p>
                   </div>
 
